@@ -5,6 +5,11 @@
 # down considerably as at 100% it is very fast
 # Best flashed onto the BBC micro:bit from the Microsoft MakeCode website - https://makecode.microbit.org/
 
+# Imports
+
+import basic
+import cuteBot
+
 # On Start - LED Pattern (a big smily face, of course :D)
 
 basic.show_leds("""
