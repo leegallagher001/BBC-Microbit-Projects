@@ -7,6 +7,11 @@
 # Once again, the best option for flashing this to the micro:bit is to go on the Microsoft
 # MakeCode website and paste the code in and then flash from there https://makecode.microbit.org/
 
+# Imports
+
+import basic
+import cuteBot
+
 # On Start - once again the smily face :D
 
 basic.show_leds("""
