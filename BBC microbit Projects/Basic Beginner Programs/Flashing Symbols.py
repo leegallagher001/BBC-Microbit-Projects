@@ -1,26 +1,42 @@
-# BBC Micro:bit - LED Scroll Text (MakeCode MicroPython)
+# BBC Micro:bit - Flashing Symbols (MakeCode MicroPython)
 
-# A very basic program that takes in a couple of strings and "scrolls"
-# them through the onboard LEDs
+# A very basic program that flashes a sequence of symbols on the onboard LEDs
 
-# The two buttons are each assigned a small sequence of strings (or sentences) to
-# be printed to the LEDs when the corresponding button is pushed
+# Button A plays a sequence of Hearts
+# Button B plays a sequence of Smiles
+
+# Would like to develop this program further to run each sequence on a loop of it's own
+# And also print some instructions to the screen
 
 import microbit
 
 # The Forever Loop
 
 def on_forever():
-    if input.button_is_pressed(Button.A): # if Button A pressed
-        basic.show_string("My name is: ", 75) # (string, interval of scroll (in ms))
-        basic.show_string("Lee", 75) # each interval "scroll" takes 75 milliseconds
-        basic.show_string("My age is: ", 75)
-        basic.show_string("29 :(", 75)
-    if input.button_is_pressed(Button.B): # if Button B pressed
-        basic.show_string("I am learning about Micro:bit", 70) # each interval 70 milliseconds
-        basic.show_string("And MicroPython!", 70)
-        basic.show_string("I want to learn more about: ", 70)
-        basic.show_string(" - Embedded Systems", 70)
-        basic.show_string(" - Electronics", 70)
-        basic.show_string(" - Hardware Programming", 70)
-basic.forever(on_forever) # plays forever loop
+    if input.button_is_pressed(Button.A):
+        basic.show_icon(IconNames.HEART)
+        basic.clear_screen()
+        basic.pause(500)
+        basic.show_icon(IconNames.SMALL_HEART)
+        basic.clear_screen()
+        basic.pause(500)
+    if input.button_is_pressed(Button.B):
+        basic.show_leds("""
+            # . . . #
+            . . . . .
+            . . . . .
+            # # # # #
+            . # # # .
+            """)
+        basic.clear_screen()
+        basic.pause(500)
+        basic.show_leds("""
+            # . . . #
+            . . . . .
+            # # # # #
+            # . . . #
+            . # # # .
+            """)
+        basic.clear_screen()
+        basic.pause(500)
+basic.forever(on_forever)
